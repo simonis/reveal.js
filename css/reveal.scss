@@ -28,7 +28,7 @@ html, body, .reveal div, .reveal span, .reveal applet, .reveal object, .reveal i
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
+	//font: inherit; // If set, highlight.js won't be able to use bold/italic fonts
 	vertical-align: baseline;
 }
 
