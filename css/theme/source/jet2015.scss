@@ -75,3 +75,51 @@ $heading4Size: 1.0em;
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
+
+// Override some settings from the default theme
+
+.reveal blockquote {
+	padding: 5px 15px;
+	width: auto;
+	display: inline-block;
+	clear: both;
+	/* The following is a trick which is required to make box-shadow with rgba() (i.e. colors with alpha channnel) */
+	/* work in Chrome when the presentation is printed (on the screen they work out of the box) */
+	/* See 174583: box-shadow, when printed, appears solid black (https://code.google.com/p/chromium/issues/detail?id=174583) */
+	-webkit-filter: blur(0);
+	border-radius: 0.5em;
+	box-shadow: rgba(0,0,0,0.8) 0 0 0.5em;
+}
+
+.reveal blockquote footer {
+	text-align: left;
+	font-size: 60%;
+	font-style: normal;
+}
+
+.reveal blockquote footer cite {
+	font-style: normal;
+}
+
+.reveal pre {
+	display: inline-block;
+	clear: both;
+	width: auto;
+	max-width: 100%;
+	padding: 5px 15px;
+	/* The following is a trick which is required to make box-shadow with rgba() (i.e. colors with alpha channnel) */
+	/* work in Chrome when the presentation is printed (on the screen they work out of the box) */
+	/* See 174583: box-shadow, when printed, appears solid black (https://code.google.com/p/chromium/issues/detail?id=174583) */
+	-webkit-filter: blur(0);
+	border-radius: 0.5em;
+	box-shadow: rgba(0,0,0,0.8) 0 0 0.5em;
+}
+
+.reveal pre code {
+	/* The following is a trick which is required to make box-shadow with rgba() (i.e. colors with alpha channnel) */
+	/* work in Chrome when the presentation is printed (on the screen they work out of the box) */
+	/* See 174583: box-shadow, when printed, appears solid black (https://code.google.com/p/chromium/issues/detail?id=174583) */
+	-webkit-filter: blur(0);
+	border-radius: 0.5em;
+	box-shadow: rgba(0,0,0,0.8) 0 0 0.5em;
+}

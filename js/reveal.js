@@ -262,6 +262,22 @@
 		dom.wrapper = document.querySelector( '.reveal' );
 		dom.slides = document.querySelector( '.reveal .slides' );
 
+	        // Trim pre-nodes if requested
+		var pre_nodes = document.querySelectorAll( 'pre' );
+		for( var i = 0, len = pre_nodes.length; i < len; i++ ) {
+			var element = pre_nodes[i];
+			if( element.hasAttribute( 'data-trim' ) && (element.getElementsByTagName( 'code' ).length > 0) && typeof element.innerHTML.trim === 'function' ) {
+		                element.innerHTML = element.innerHTML.trim();
+			}
+			else if( element.hasAttribute( 'text-trim' ) && typeof element.textContent.trim === 'function' ) {
+				// If there'S no nested <code> element, we intentionally use 'textContent' instead of
+				// 'innerHTML' here in order to trim away potential CDATA prefixes together with whitespace.
+			        // Unfortunately, this removes all the nested tags so use it only
+			        // for plain source code embedded into CDATA sections.
+				element.textContent = element.textContent.trim();
+			}
+		}
+
 		// Force a layout when the whole page, incl fonts, has loaded
 		window.addEventListener( 'load', layout, false );
 
@@ -3455,11 +3471,13 @@
 				} );
 
 				if( fragmentsHidden.length ) {
-					dispatchEvent( 'fragmenthidden', { fragment: fragmentsHidden[0], fragments: fragmentsHidden } );
+                                        // expose the complete fragment list in the event (vhs)
+					dispatchEvent( 'fragmenthidden', { fragment: fragmentsHidden[0], fragments: fragmentsHidden, allFragments: fragments } );
 				}
 
 				if( fragmentsShown.length ) {
-					dispatchEvent( 'fragmentshown', { fragment: fragmentsShown[0], fragments: fragmentsShown } );
+                                        // expose the complete fragment list in the event (vhs)
+					dispatchEvent( 'fragmentshown', { fragment: fragmentsShown[0], fragments: fragmentsShown, allFragments: fragments } );
 				}
 
 				updateControls();

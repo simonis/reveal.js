@@ -143,6 +143,9 @@ body {
 .reveal code {
   font-family: 'Roboto Mono', monospaced; }
 
+.reveal p code, .reveal li code {
+  font-size: 90% }
+
 .reveal pre code {
   display: block;
   padding: 5px;
