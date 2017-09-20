@@ -79,6 +79,12 @@ $heading4Size: 1.0em;
 
 // Override some settings from the default theme
 
+.reveal .slide-number {
+	font-family: inherit;
+	color: $linkColor;
+	background-color: inherit;
+}
+
 .reveal blockquote {
 	padding: 5px 15px;
 	width: auto;
@@ -116,6 +122,10 @@ $heading4Size: 1.0em;
 	box-shadow: rgba(0,0,0,0.8) 0 0 0.5em;
 }
 
+.reveal p code, .reveal li code {
+	font-size: 90%;
+}
+
 .reveal pre code {
 	/* The following is a trick which is required to make box-shadow with rgba() (i.e. colors with alpha channnel) */
 	/* work in Chrome when the presentation is printed (on the screen they work out of the box) */
@@ -124,3 +134,30 @@ $heading4Size: 1.0em;
 	border-radius: 0.5em;
 	box-shadow: rgba(0,0,0,0.8) 0 0 0.5em;
 }
+
+/*********************************************
+ * NAVIGATION CONTROLS
+ *********************************************/
+.reveal .controls button.navigate-left, .reveal .controls button.navigate-left.enabled {
+  border-right-color: $linkColor; }
+
+.reveal .controls button.navigate-right, .reveal .controls button.navigate-right.enabled {
+  border-left-color: $linkColor; }
+
+.reveal .controls button.navigate-up, .reveal .controls button.navigate-up.enabled {
+  border-bottom-color: $linkColor; }
+
+.reveal .controls button.navigate-down, .reveal .controls button.navigate-down.enabled {
+  border-top-color: $linkColor; }
+
+.reveal .controls button.navigate-left.enabled:hover {
+  border-right-color: $linkColorHover; }
+
+.reveal .controls button.navigate-right.enabled:hover {
+  border-left-color: $linkColorHover; }
+
+.reveal .controls button.navigate-up.enabled:hover {
+  border-bottom-color: $linkColorHover; }
+
+.reveal .controls button.navigate-down.enabled:hover {
+  border-top-color: $linkColorHover; }
